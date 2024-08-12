@@ -98,7 +98,7 @@ class Inventory:
         """
         An inventory report by item type is generated and each report is written to a separate CSV file.
         """
-        electronic_item_types = set(item.item_type for item in self.items)
+        electronic_item_types = set(item.item_type for item in self.items)   # set() is used so that only unique electronic item types are taken into account. No duplicates are taken into account
         for electronic_item in electronic_item_types:
             eligible_items = [item for item in self.items if item.item_type == electronic_item]
             sorted_inventory = sorted(eligible_items, key=lambda x: x.item_id)
